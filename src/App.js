@@ -1,24 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import {Outlet} from "react-router-dom";
+import {Navbar,Footer} from "./Components"
+import { useSelector } from "react-redux";
 
 function App() {
+  const theme = useSelector(state=>state.theme)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <div className={`${theme.current_theme} sm:w-screen sm:h-full sm:flex sm:flex-col sm:overflow-hidden`}>
+   <Navbar/>
+    <Outlet/>
+   <Footer/> 
+   </div>
   );
 }
 
