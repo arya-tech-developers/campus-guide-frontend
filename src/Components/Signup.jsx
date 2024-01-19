@@ -1,6 +1,5 @@
 import {Link} from "react-router-dom";
 import { useState } from "react";
-import { signup,createUserDB } from "../Auth/Auth.js";
 import {toast,ToastContainer} from "react-toastify";
 function Signup() {
   const [name,setName]=useState("");
@@ -34,7 +33,7 @@ function Signup() {
 />
 {/* Same as */}
 <ToastContainer />
-      <form className="sm:h-5/6 sm:w-4/6 sm:p-7 sm:rounded-xl sm:grid sm:grid-rows sm:grid-cols-2 sm:gap-x-6 sm:border border-slate-200 sm:shadow-allEdges bg-white sm:gap-y-5 ">
+      <form className="sm:h-auto sm:w-4/6 sm:p-7 sm:rounded-xl sm:grid sm:grid-rows sm:grid-cols-2 sm:gap-x-6 sm:border border-slate-200 sm:shadow-allEdges bg-white sm:gap-y-5 ">
         <div className="sm:flex sm:flex-col sm:justify-between order-1 ">
           <p className="sm:mb-2">Name</p>
           <input
