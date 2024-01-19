@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 function Login() {
   return (
     <div className="sm:w-full sm:h-auto sm:py-16 sm:flex sm:justify-center sm:items-center bg-slate-100 font-Poppins text-sm ">
-      <div className="sm:h-5/6 sm:w-1/3 sm:p-7 sm:rounded-xl sm:flex sm:flex-col sm:justify-between  sm:border border-slate-200 sm:shadow-allEdges bg-white sm:gap-y-6 ">
+      <div className="sm:h-auto sm:w-1/3 sm:p-7 sm:rounded-xl sm:flex sm:flex-col sm:justify-between  sm:border border-slate-200 sm:shadow-allEdges bg-white sm:gap-y-6 ">
         {/* Upper container */}
         <div className="sm:flex sm:flex-col sm:justify-between ">
           <p className="sm:mb-2">Email Address</p>

@@ -1,16 +1,22 @@
 import homeBgBanner from "../Assets/Images/hero_student_collage_IN_2x.png";
+import TestimonialItem from "./TestimonialItem";
 import { Link } from "react-router-dom";
-import { CourseMenu,WelcomeMsg, Testimonials } from "./index";
+import leftArrow from "../Assets/Images/left-arrow.png";
+import rightArrow from "../Assets/Images/right-arrow.png";
+import bannerImage from "../Assets/Images/Aysha-Swaona-Miss.webp"
+import TestimonialsSection from "./testimonialsSection";
+import Stats from "./Stats";
+import FeatureSection from "./FeatureSection";
 
 
 function Home() {
   return (
-    <div className="sm:max-w-screen-2xl sm:mx-auto  ">
-      <div className="sm:px-14 sm:w-full sm:flex sm:flex-row sm:justify-between sm:mt-7 ">
+    <div className="max-w-screen-xl sm:mx-auto  ">
+      <div className="sm:px-10 sm:w-full sm:flex sm:flex-row sm:justify-between sm:mt-7 ">
         <div className="sm:w-2/5">
           <img src={homeBgBanner} alt="Banner Image" />
         </div>
-        <div className="sm:w-3/5 sm:pl-8 sm:mt-24 sm:font-Poppins">
+        <div className="sm:w-3/5 sm:pl-8 sm:mt-24 sm:font-Poppins px-10">
           <div className="sm:text-4xl sm:font-semibold sm:tracking-[0.0125em] text-slate-800">
             <p>
               For every College Student,
@@ -40,8 +46,30 @@ function Home() {
           </div>
         </div>
       </div>
-      <Testimonials/>
-      <WelcomeMsg/>
+      {/* <div className=" sm:rounded-2xl sm:mt-8 sm:py-10  sm:px-28 relative bg-green-600/5">
+        <h1
+        className="text-5xl text-center  font-PatuaOne tracking-wide   ">What Students write About Us ?</h1>
+        <hr  className="sm:w-1/2 sm:mx-auto sm:h-1 sm:mt-[3px] sm:rounded-md bg-green-600 shadow-sm shadow-green-600 opacity-40 "/>
+       <img src={leftArrow}
+       className="sm:h-12 absolute  left-5 top-1/2 opacity-50 cursor-pointer" /> 
+       <section>
+          <div 
+        className="sm:grid sm:grid-cols-3 sm:gap-8 sm:my-8">
+        <TestimonialItem/>
+        <TestimonialItem/>
+        <TestimonialItem/>
+        <TestimonialItem/>
+        <TestimonialItem/>
+        <TestimonialItem/>
+        </div>
+        </section>
+        
+        <img src={rightArrow}
+        className="sm:h-12 absolute right-5 top-1/2 opacity-50 cursor-pointer"/>
+      </div> */}
+      <FeatureSection/>
+      <TestimonialsSection/>
+      <Stats/>
     </div>
   );
 }
