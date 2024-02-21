@@ -94,4 +94,25 @@ const semesterData = [
   },
 ]
 
+
+const dataStructreQuestioinPapers = [
+  {
+    title:"2019-2020",
+    resource_url:"https://res.cloudinary.com/ds2tgx0bn/image/upload/f_auto,q_auto/v1/B.%20Tech/pyqs/bya44xs8c8jwj0ssvlyn"
+  },
+  {
+    title:"2020-2021",
+    resource_url:"https://res.cloudinary.com/ds2tgx0bn/image/upload/f_auto,q_auto/v1/B.%20Tech/pyqs/bya44xs8c8jwj0ssvlyn"
+  },
+  {
+    title:"2021-2022",
+    resource_url:"https://res.cloudinary.com/ds2tgx0bn/image/upload/f_auto,q_auto/v1/B.%20Tech/pyqs/bya44xs8c8jwj0ssvlyn"
+  },
+  {
+    title:"2022-2023",
+    resource_url:"https://res.cloudinary.com/ds2tgx0bn/image/upload/f_auto,q_auto/v1/B.%20Tech/pyqs/epzfpcx0dq3mvfbikkjj"
+  },
+]
+
+
 export { courseData, branchData, semesterData, subjectData };

@@ -17,7 +17,7 @@ function DirectoryStructre(
         <div className="sm:h-10 border-b border-slate-300 rounded-t-xl text-black dark:text-white bg-slate-200  dark:bg-black text-sm sm:p-2">
           Question Papers /
         </div>
-        <div className={`sm:h-full sm:w-full sm:p-6 sm:grid sm:grid-cols-${directoryStructredata.length&&directoryStructredata.length<4?directoryStructredata.length:4} sm:gap-x-36 place-content-center justify-center`}>
+        <div className={`sm:h-full sm:w-full sm:p-12 sm:grid sm:grid-cols-${directoryStructredata.length&&directoryStructredata.length<4?directoryStructredata.length:4} sm:gap-y-10 sm:gap-x-36 place-content-center justify-center`}>
           {
             directoryStructredata.map(({ directoryName, path },index) => {
             return (

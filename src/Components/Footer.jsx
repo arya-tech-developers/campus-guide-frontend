@@ -7,16 +7,9 @@ export default () => {
       items: [
         {
           href: "javascript:void()",
-          name: "Partners",
+          name: "Blogs",
         },
-        {
-          href: "javascript:void()",
-          name: "Blog",
-        },
-        {
-          href: "javascript:void()",
-          name: "Team",
-        },
+      ,
         {
           href: "javascript:void()",
           name: "Careers",
@@ -34,14 +27,6 @@ export default () => {
           href: "javascript:void()",
           name: "Support",
         },
-        {
-          href: "javascript:void()",
-          name: "Docs",
-        },
-        {
-          href: "javascript:void()",
-          name: "Pricing",
-        },
       ],
     },
     {
@@ -49,15 +34,7 @@ export default () => {
       items: [
         {
           href: "javascript:void()",
-          name: "Terms",
-        },
-        {
-          href: "javascript:void()",
-          name: "License",
-        },
-        {
-          href: "javascript:void()",
-          name: "Privacy",
+          name: "Privacy Policy",
         },
         {
           href: "javascript:void()",
@@ -96,7 +73,7 @@ export default () => {
             </div>
           </form>
         </div>
-        <div className="flex-1 mt-10 space-y-6 items-center justify-between sm:flex md:space-y-0 md:mt-0">
+        <div className="flex-1 mt-10 space-y-6 items-start justify-between sm:flex md:space-y-0 md:mt-0">
           {footerNavs.map((item, idx) => (
             <ul className="space-y-4" key={idx}>
               <h4 className="text-gray-800 font-medium">{item.label}</h4>
