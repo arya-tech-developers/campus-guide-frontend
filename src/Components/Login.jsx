@@ -2,38 +2,32 @@ import { useState } from "react";
 import appleLogo from "../Assets/Images/apple.png";
 import googleLogo from "../Assets/Images/google.png";
 import axios from "axios";
-
+import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom";
-import { errorMsg, succesMsg } from "../toasts/toast";
+import { errorMsg, succesMsg, toastProps } from "../toasts/toast";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const loginHandler = async(event)=>{
+  const navigate = useNavigate();
+  
+  const loginHandler = async (event) => {
     event.preventDefault();
-  try {
-    const loginResponse = await axios.post(
-      "http://localhost:5000/api/v1/users/login",
-      {
-        email,
-        password
-      }
-      )
-    if(!loginResponse){
-      errorMsg("Something Went Wrong!");
-    }
-    else{
-      succesMsg(loginResponse.response.data.message);
-    }
-
-  } catch (error) {
-    errorMsg(error.message)
-  }
-  }
+    await axios
+      .post("http://localhost:5000/api/v1/users/login", { email, password })
+      .then((response) => {
+       console.log(response,response.data.message)
+       toast.success(response.data.message,toastProps)
+        navigate("/")
+      })
+      .catch((error) => toast.error("error:",error.response.data.message));
+  };
   return (
     <div className="sm:w-full sm:h-auto sm:py-16 sm:flex sm:justify-center sm:items-center bg-slate-100 font-Poppins text-sm ">
-      <form 
-      className="sm:h-auto sm:w-1/3 sm:p-7 sm:rounded-xl sm:flex sm:flex-col sm:justify-between  sm:border border-slate-200 sm:shadow-allEdges bg-white sm:gap-y-6 "
-      onSubmit={loginHandler}>
+      <form
+        className="sm:h-auto sm:w-1/3 sm:p-7 sm:rounded-xl sm:flex sm:flex-col sm:justify-between  sm:border border-slate-200 sm:shadow-allEdges bg-white sm:gap-y-6 "
+        onSubmit={loginHandler}
+      >
         {/* Upper container */}
         <div className="sm:flex sm:flex-col sm:justify-between ">
           <p className="sm:mb-2">Email Address</p>
@@ -41,7 +35,7 @@ function Login() {
             type="email"
             placeholder="Enter email address"
             value={email}
-            onChange={(event)=>setEmail(event.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
             required={true}
             className="sm:h-7 sm:px-2 sm:text-sm sm:tracking-wide sm:text-slate-400 sm:outline-none  sm:border border-slate-200 sm:shadow-sm sm:rounded-md"
           />
@@ -52,7 +46,7 @@ function Login() {
             type="password"
             placeholder="Enter password"
             value={password}
-            onChange={(event)=>setPassword(event.target.value)}
+            onChange={(event) => setPassword(event.target.value)}
             required={true}
             className="sm:h-7 sm:px-2 sm:text-sm sm:tracking-wide sm:text-slate-400 sm:outline-none sm:border border-slate-200 sm:shadow-sm sm:rounded-md"
           />
@@ -67,9 +61,10 @@ function Login() {
           </p>
         </div>
         <div>
-          <button 
-          className="sm:w-full sm:h-8 sm:bg-green-600 opacity-90 rounded-md text-white font-medium"
-          type="submit">
+          <button
+            className="sm:w-full sm:h-8 sm:bg-green-600 opacity-90 rounded-md text-white font-medium"
+            type="submit"
+          >
             Login
           </button>
           <p className=" sm:text-[14px] sm:mt-4 sm:text-slate-700  text-center">
@@ -103,6 +98,17 @@ function Login() {
           </button>
         </div>
       </form>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }

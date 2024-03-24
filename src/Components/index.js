@@ -9,11 +9,15 @@ import TestimonialItem from "./TestimonialItem.jsx";
 import PrivacyPolicy from "./PrivacyPolicy.jsx";
 import PyqsLayout from "./Pyqs.jsx";
 import Footer from "./Footer.jsx";
+import Layout from "../Layout.jsx";
+
+import EmailVerificationPage from "./emailVerificationPage.jsx";
 
 export { 
         Navbar,
         Home,
         ErrorPage,
+        Layout,
         Login,
         Footer,
         Signup,
@@ -22,4 +26,5 @@ export {
         TestimonialItem,
         PrivacyPolicy,
         PyqsLayout,
+        EmailVerificationPage,
     };

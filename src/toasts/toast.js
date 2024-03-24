@@ -17,7 +17,7 @@ const succesMsg = (message) => toast.success(message, {
 const errorMsg = (message) => toast.error(message, {
     position: "top-right",
     autoClose: 5000,
-    hideProgressBar: true,
+    hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
@@ -26,5 +26,15 @@ const errorMsg = (message) => toast.error(message, {
 
 });
 
+const toastProps = {
+    position: "top-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+}
 
-export { succesMsg, errorMsg }    
+export { succesMsg, errorMsg, toastProps }    

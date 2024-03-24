@@ -1,0 +1,12 @@
+1. issue with alphabet waring in name input feild.   == Solved
+2. issues with email sender controller -- not working.
+3. creating a mail server -- https://youtu.be/l3htAzOAx7c?si=nQlKRe1pExuCxO_bx
+
+
+
+A. Authentication 
+
+-> Registration --> Email Verification Link
+-> login
+-> Forgot Password
+-> Request Rate Limit

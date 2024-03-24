@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import { ToastContainer } from "react-toastify";
-import { succesMsg,errorMsg } from "../toasts/toast.js";
-import { redirect } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import { succesMsg,errorMsg, toastProps } from "../toasts/toast.js";
+import { useNavigate } from "react-router-dom";
 import { isAlphaNumeric } from "../utils/functions.utils.js";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -19,11 +19,14 @@ function Signup() {
   const [semester, setSemester] = useState("");
   const [dob, setDob] = useState("");
 
+  const navigate = useNavigate();
+
   const signupHandler = async (event) => {
     event.preventDefault();
     // password must be alphanumeric & contain special characters
     // throw error if number present in name
-      if(!isAlphaNumeric(name)){errorMsg("Name must contain Alphabets only !");}
+      if(isAlphaNumeric(name))
+      {errorMsg("Name must contain Alphabets only !");}
           
         // college not empty
       else if(!college)
@@ -46,8 +49,8 @@ function Signup() {
       else{
         try {
           console.log(name,branch,course,college)
-          const userRegistration = await axios.post(
-            "http://localhost:5000/api/v1/users/registration",
+           axios.post(
+            "http://localhost:5001/api/v1/users/registration",
             {
               name,
               email,
@@ -57,14 +60,25 @@ function Signup() {
               branch,
               semester,
             }
-          );
+          ).then((response)=>{
+            toast.success(response.data.message,toastProps);
+            console.log(response.data.statusCode)
+            if(response.data.statusCode==201)
+            setTimeout(() => {
+               navigate("/signup-email-verification")
+            }, 4000);
+             
+          })
+          .catch((error)=>{
+            toast.error(error.response.data.message,toastProps)
+          })
           
           // succesful toast
-            succesMsg(userRegistration.data.message);
+            succesMsg();
             <redirect to="/login"/>
         } catch (error) {
           // error toast
-          errorMsg(error.response.data.message)
+          errorMsg()
         }
       }
 
